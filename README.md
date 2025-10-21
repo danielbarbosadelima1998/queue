@@ -1,75 +1,74 @@
-🚀 Fila super leve em Go
+⚠️ **Work in Progress** — This project is under active development and not ready for production yet.
 
-Uma engine de filas ultraleve, escrita em Golang, projetada para suportar milhares de filas simultâneas com alto desempenho, baixo consumo de memória e persistência confiável.
+# 🚀 Ultra-lightweight Queue Engine in Go
 
-🎯 Objetivo
+An **ultra-lightweight queue engine**, written in **Golang**, designed to support **thousands of sequential queues** with **high performance**, **low memory usage**, and **reliable persistence**.
 
-O projeto nasce com a proposta de criar uma solução de filas simples, rápida e independente, sem depender de sistemas externos complexos como RabbitMQ ou Kafka.
-A meta é atingir uma arquitetura capaz de lidar com milhões de mensagens por segundo, mantendo o foco em:
+---
 
-- Eficiência extrema: mínimo overhead por fila.
+## 🎯 Goal
 
-- Escalabilidade horizontal: suporte nativo a milhares de filas simultâneas.
+This project aims to create a **simple, fast, and independent** queue solution — without relying on complex external systems like RabbitMQ or Kafka.  
+The goal is to achieve an architecture capable of handling **millions of messages per second**, focusing on:
 
-- Consumo eficiente: para máxima performance e throughput.
+- ⚡ **Extreme efficiency:** minimal overhead per queue.  
+- 🧱 **Horizontal scalability:** native support for thousands of concurrent queues.  
+- 🎛️ **Efficient consumption:** maximum throughput and performance.  
+- 💾 **Reliable persistence:** no message loss, even under failure conditions.  
+- 🧩 **Simplicity:** easy to use, embed, and understand.
 
-- Persistência confiável: sem perder mensagens, mesmo em falhas.
+---
 
-- Simplicidade: fácil de usar, embutir e entender.
+## 🧩 Current State
 
-🧩 Estado atual
+The project is in an **early development stage** — currently defining the architecture and building the first prototypes.  
+The core is being written entirely in **Go**, focusing on **performance** and **code clarity**.
 
-O projeto está em estágio inicial — ainda em fase de definição de arquitetura e primeiros protótipos.
-A base será construída inteiramente em Go, com foco em performance e clareza de código.
+> ⚠️ This repository is **not ready for production** yet, but **contributions and ideas are welcome!**
 
-⚠️ Este repositório ainda não está pronto para uso em produção, mas já aceita contribuições e ideias!
+---
 
-🤝 Contribuindo
+## 🤝 Contributing
 
-Quer participar da construção de uma fila open-source moderna, simples e poderosa?
+Want to help build a **modern, simple, and powerful open-source queue engine**?
 
-- Faça um fork do repositório.
+- Fork the repository  
+- Send PRs with improvements, ideas, or fixes  
+- Open issues to discuss architecture, API design, or optimizations  
+- Even small contributions are valuable — documentation, benchmarks, tests, or design feedback
 
-- Envie PRs com melhorias, ideias ou correções.
+---
 
-- Abra issues para discutir arquitetura, design de API e otimizações.
+## 🔮 Roadmap (initial vision)
 
-- Mesmo pequenas contribuições são bem-vindas — documentação, benchmarks, testes, ou sugestões de design.
+- [ ] Basic in-memory queue structure  
+- [ ] Simple disk persistence  
+- [ ] Efficient consumption  
+- [ ] Multiple consumers  
+- [ ] Basic monitoring (metrics)  
+- [ ] Benchmark and comparison with other solutions  
+- [ ] Optional CLI / REST API interface  
 
-🔮 Roadmap (visão inicial)
+---
 
- - Estrutura básica de filas em memória
+## 💡 Philosophy
 
- - Persistência simples em disco
+> **“Less protocol, more purpose.”**
 
- - Consumo eficiente
+Most modern queue systems are designed to solve every possible problem — but in doing so, they carry a significant cost in **complexity** and **overhead**.  
+Protocols, brokers, network layers, replication — all of these have a price, often paid in **latency** and **resource consumption**.
 
- - Múltiplos consumidores
+This project takes a different path:  
+focus on **pure performance and a clear purpose** — to create and manage **thousands of sequential queues** with **minimal client impact** and **no unnecessary dependencies**.
 
- - Monitoramento básico (métricas)
+Each queue is **simple, predictable, and direct** — it processes messages in order, respects available resources, and requires no heavy infrastructure.
 
- - Benchmark e comparação com outras soluções
+The result is a **transparent, optimized, and efficient** queue engine — built to solve a **specific problem** with **clarity and total control**.
 
- - Interface CLI / API REST opcional
+---
 
-💡 Filosofia
+## 🧠 Technologies
 
-“Menos protocolo, mais propósito.”
-
-A maioria dos sistemas de fila modernos nasceu para resolver todos os problemas possíveis — mas, ao fazer isso, carregam um grande custo de complexidade e overhead.
-Protocolos, brokers, camadas de rede, replicação — tudo isso tem um preço, e muitas vezes ele é pago em latência e consumo de recursos.
-
-Este projeto segue um caminho diferente:
-focar em performance pura e propósito claro — criar e gerenciar milhares de filas sequenciais, com impacto mínimo no cliente e sem dependências desnecessárias.
-
-Cada fila é simples, previsível e direta: processa mensagens de forma ordenada, respeitando os recursos disponíveis, sem exigir infraestrutura pesada.
-
-O resultado é uma engine de filas otimizada, transparente e eficiente, construída para resolver um problema específico com clareza e controle total.
-
-🧠 Tecnologias
-
-Golang — linguagem principal.
-
-Armazenamento local / memória (opcional) — para persistência e compartilhamento de estado.
-
-Arquitetura modular — para fácil extensão futura.
+- 🐹 **Golang** — main programming language  
+- 💾 **Local storage / in-memory (optional)** — for persistence and shared state  
+- 🧩 **Modular architecture** — for easy future extension
