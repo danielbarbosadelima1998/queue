@@ -11,11 +11,13 @@ An **ultra-lightweight queue engine**, written in **Golang**, designed to suppor
 This project aims to create a **simple, fast, and independent** queue solution — without relying on complex external systems like RabbitMQ or Kafka.  
 The goal is to achieve an architecture capable of handling **millions of messages per second**, focusing on:
 
-- ⚡ **Extreme efficiency:** minimal overhead per queue.  
-- 🧱 **Horizontal scalability:** native support for thousands of concurrent queues.  
-- 🎛️ **Efficient consumption:** maximum throughput and performance.  
-- 💾 **Reliable persistence:** no message loss, even under failure conditions.  
-- 🧩 **Simplicity:** easy to use, embed, and understand.
+- ⚡ Extreme efficiency: minimal overhead per queue.
+- 🧱 Horizontal scalability: native support for thousands of concurrent queues.
+- 🎛️ Efficient batch processing: a publisher and consumer designed to work in batches, maximizing performance and resource utilization.
+- 🚀 Ultra-low latency & high throughput: optimized communication for near real-time processing at massive scale.
+- 💾 Reliable persistence: no message loss, even under failure conditions.
+- 🧩 Simplicity: easy to use, embed, and understand.
+
 
 ---
 
