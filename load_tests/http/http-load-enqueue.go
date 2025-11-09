@@ -12,8 +12,8 @@ import (
 )
 
 const (
-	totalRequests   = 100000 // Total de requisições
-	concurrentLimit = 1000   // Número máximo de workers simultâneos
+	totalRequests   = 100_000 // Total de requisições
+	concurrentLimit = 1_000   // Número máximo de workers simultâneos
 	url             = "http://localhost:7500/api/v1/queue/messages/enqueue"
 )
 

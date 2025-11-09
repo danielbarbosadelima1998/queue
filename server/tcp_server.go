@@ -13,11 +13,11 @@ import (
 
 type TcpServer struct {
 	addr           string
-	ProcessMessage func([]byte)
+	ProcessMessage func(conn net.Conn, payload []byte)
 	workerPool     *utils.Worker
 }
 
-func NewTcpServer(processor func([]byte)) *TcpServer {
+func NewTcpServer(processor func(conn net.Conn, payload []byte)) *TcpServer {
 	port := os.Getenv("API_PORT")
 
 	if port == "" {
@@ -28,7 +28,7 @@ func NewTcpServer(processor func([]byte)) *TcpServer {
 	return &TcpServer{
 		addr:           address,
 		ProcessMessage: processor,
-		workerPool:     utils.NewWorker("tcp-server", 100),
+		workerPool:     utils.NewWorker("tcp-server", 1),
 	}
 }
 
@@ -69,6 +69,7 @@ func (s *TcpServer) handleConnection(conn net.Conn) {
 		// 1. LÊ O TAMANHO DA MENSAGEM
 		_, err := io.ReadFull(reader, sizeBuf)
 		if err != nil {
+			fmt.Println("Error on read message length", err)
 			return
 		}
 
@@ -78,11 +79,12 @@ func (s *TcpServer) handleConnection(conn net.Conn) {
 		payload := make([]byte, msgSize)
 		_, err = io.ReadFull(reader, payload)
 		if err != nil {
+			fmt.Println("Error on read message body", err)
 			return
 		}
 
 		// 3. PROCESSA MENSAGEM
-		s.ProcessMessage(payload)
+		s.ProcessMessage(conn, payload)
 	}
 }
 

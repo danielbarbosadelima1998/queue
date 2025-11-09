@@ -10,8 +10,6 @@ import (
 
 	"github.com/bytedance/sonic"
 	"github.com/gofiber/fiber/v3"
-	"github.com/gofiber/fiber/v3/middleware/logger"
-	"github.com/gofiber/fiber/v3/middleware/recover"
 )
 
 type HttpServer struct {
@@ -24,16 +22,17 @@ type HttpServer struct {
 // NewHttpServer cria um novo servidor HTTP com dependências injetáveis
 func NewHttpServer(s store.Store) *HttpServer {
 	app := fiber.New(fiber.Config{
-		CaseSensitive: true,
-		StrictRouting: true,
-		AppName:       "Queue",
+		CaseSensitive:            true,
+		StrictRouting:            true,
+		AppName:                  "Queue",
+		DisableHeaderNormalizing: true,
 	})
 
-	app.Use(recover.New(recover.Config{
-		EnableStackTrace: true,
-	}))
+	// app.Use(recover.New(recover.Config{
+	// 	EnableStackTrace: true,
+	// }))
 
-	app.Use(logger.New())
+	// app.Use(logger.New())
 
 	return &HttpServer{
 		server: app,
@@ -50,12 +49,12 @@ func NewHttpServerWithConfig(s store.Store, enableLogger bool) *HttpServer {
 		AppName:       "Queue",
 	})
 
-	app.Use(recover.New(recover.Config{
-		EnableStackTrace: true,
-	}))
+	// app.Use(recover.New(recover.Config{
+	// 	EnableStackTrace: true,
+	// }))
 
 	if enableLogger {
-		app.Use(logger.New())
+		// app.Use(logger.New())
 	}
 
 	return &HttpServer{

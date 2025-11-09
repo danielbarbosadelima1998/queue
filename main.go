@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"net"
 	"queue/server"
 
 	"github.com/joho/godotenv"
@@ -21,7 +22,7 @@ func main() {
 
 	// log.Fatal(httpServer.Start())
 
-	tcpServer := server.NewTcpServer(func(b []byte) {
+	tcpServer := server.NewTcpServer(func(conn net.Conn, b []byte) {
 		// @TODO: Implementar "rotas" enqueue, dequeue, etc.
 		// fmt.Println("new message received!", string(b))
 	})
